@@ -1,0 +1,31 @@
+---
+title: music
+permalink: /music/
+description: Albums, tracks and remixes by Antoine Hureau-Parreira, released as arthur hureau.
+lede: Albums, tracks and remixes released as arthur hureau.
+---
+{% assign music = site.data.music %}
+{% include platforms.html %}
+
+{% if music.spotify_artist_id %}
+<iframe class="player" title="arthur hureau on Spotify"
+  src="https://open.spotify.com/embed/artist/{{ music.spotify_artist_id }}"
+  height="352" loading="lazy"
+  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+{% endif %}
+
+<h2>albums</h2>
+<ul class="releases">
+{% for a in music.albums %}
+  <li><span class="release-year">{{ a.year }}</span> <a href="{{ a.url }}">{{ a.title }}</a></li>
+{% endfor %}
+</ul>
+
+<h2>tracks and remixes</h2>
+<ul class="releases releases--tracks">
+{% for t in music.tracks %}
+  <li><a href="{{ t.url }}">{{ t.title }}</a></li>
+{% endfor %}
+</ul>
+
+<p>Sound design and sound installations for exhibitions and other artists are listed under <a href="{{ '/works/' | relative_url }}">works</a>.</p>

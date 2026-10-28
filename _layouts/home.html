@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<header class="home-header">
+  <h1>{{ site.author.name }}</h1>
+  <p class="lede">{{ page.lede }}</p>
+</header>
+
+<div class="intro prose">
+  {{ content }}
+</div>
+
+{% assign now = site.data.teaching.current %}
+<section class="home-section">
+  <h2>teaching in {{ now.semester }}</h2>
+  <ul class="courses courses--compact">
+  {% for c in now.courses %}
+    <li><a href="{{ c.url }}"><span class="course-code">{{ c.code }}</span> {{ c.title }}</a></li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ '/teaching/' | relative_url }}">All courses</a></p>
+</section>
+
+<section class="home-section">
+  <h2>music</h2>
+  {% include platforms.html %}
+  <p><a href="{{ '/music/' | relative_url }}">Albums and tracks</a></p>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="home-section">
+  <h2>recent posts</h2>
+  {% include post-list.html posts=site.posts limit=5 %}
+  <p><a href="{{ '/blog/' | relative_url }}">All posts</a></p>
+</section>
+{% endif %}

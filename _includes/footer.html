@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p>{{ site.author.name }}, Bergen</p>
+    <ul>
+    {% for l in site.data.links %}
+      <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+    {% endfor %}
+      <li><a href="{{ '/feed.xml' | relative_url }}">rss</a></li>
+    </ul>
+  </div>
+</footer>

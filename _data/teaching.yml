@@ -1,0 +1,158 @@
+# Teaching at UiB.
+# Semester codes: H = autumn (høst), V = spring (vår). 26H = autumn 2026.
+#
+# Each semester: move the "current" courses into "history" (or update their
+# period) and add the new ones.
+
+current:
+  semester: autumn 2026
+  courses:
+    - code: MEME107
+      title: Introduction to performance
+      credits: 5 ECTS
+      role: teacher and technical supervisor
+      url: https://www4.uib.no/en/studies/courses/meme107
+      summary: >-
+        An undergraduate introduction to performance and time-based art
+        at the Faculty of Fine Art, Music and Design.
+    - code: PRO218
+      title: Moods
+      credits: 10 ECTS
+      role: teacher and technical supervisor
+      url: https://www4.uib.no/en/studies/courses/pro218
+      summary: >-
+        A project-based course on how mood, atmosphere and affect are made
+        in contemporary art: the body as material, the choreography of
+        space, and light, sound, video and performance combined into a
+        single work. Taught through workshops and tasks, with individual
+        and collaborative projects.
+
+history:
+  - code: KMDINTRO-024
+    title: "Workshop access: GA Midi studio"
+    role: course responsible
+    period: 24H–26V
+  - code: MEME204
+    title: "New media and performance: Extended Embodiment"
+    role: teacher and technical supervisor
+    period: 24V
+  - code: MEME107
+    title: Introduction to performance (and time-based art)
+    role: teacher and technical supervisor
+    period: 23H–24H
+  - code: PRO210
+    title: Moods
+    role: teacher and technical supervisor
+    period: 23H
+  - code: PRO221
+    title: "Research topic: Site & Context"
+    role: teacher and technical supervisor
+    period: 23H
+  - code: VIS120
+    title: Time-based expressions and interaction
+    role: teacher and technical supervisor
+    period: 23V
+  - code: DES233
+    title: Technology and materiality
+    role: technical supervisor and practice supervisor
+    period: 23V
+  - code: MUTP104
+    title: Musicking
+    role: technical supervisor
+    period: 23V
+  - code: MEME103/MEME303
+    title: Introduction to new media
+    role: teacher and technical supervisor
+    period: 22H
+  - code: DOR222
+    title: Form and applied aesthetics
+    role: teacher and technical supervisor
+    period: 22H
+  - code: MVK102
+    title: Writing about music
+    role: technical supervisor
+    period: 22H
+  - code: MUTP105
+    title: Ensemble in music therapy groups
+    role: technical supervisor
+    period: 22V
+  - code: MVK101
+    title: Music production
+    role: technical supervisor
+    period: 21V–23V
+  - code: KMD-NYE-107
+    title: "BA1: Other Media"
+    role: technical supervisor
+    period: 21H
+  - code: KMD-MAD-358
+    title: Workshop Carousel
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-DES-108
+    title: Elements and principles of design
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-DES-220
+    title: "Joint course: Extreme Weather Warning and Action"
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-VIS-117
+    title: Typography
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-VIS-129
+    title: Workshop Carousel
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-VIS-131
+    title: Symbol, semiotics and visual language
+    role: teacher and technical supervisor
+    period: 21H
+  - code: KMD-NYE-225
+    title: "Re-Radio: Radio Art's Evocations"
+    role: teacher and technical supervisor
+    period: 21V
+  - code: KMD-VIS-250
+    title: Sound
+    role: teacher and technical supervisor
+    period: 21V
+  - code: KMD-NYE-207
+    title: A/V Club and video studio
+    role: teacher, technical supervisor and course responsible
+    period: 20H–22V
+  - code: KMD-NYE-106
+    title: "BA1: Introduction to New Media"
+    role: teacher and technical supervisor
+    period: 20H
+  - code: KMD-VIS-246
+    title: Sense-oriented storytelling
+    role: teacher and technical supervisor
+    period: 20V
+  - code: HMS-NYE-100/KMDINTRO-015
+    title: "Intro and workshop access: media lab"
+    role: course responsible
+    period: 19H–23V
+  - code: HMS-NYE-101/KMDINTRO-016
+    title: "Intro and workshop access: sound studio"
+    role: course responsible
+    period: 19H–23V
+  - code: HMS-NYE-102/KMDINTRO-017
+    title: "Intro and workshop access: video studio"
+    role: course responsible
+    period: 19H–23V
+  - code: KMD-VIS-120
+    title: "Illustration 1: Digital and graphic media"
+    role: teacher and technical supervisor
+    period: 19H
+  - code: KMD-KMD-301
+    title: JAM
+    role: teacher and technical supervisor
+    period: 19H–
+  - code: ""
+    title: A/V Club
+    role: teacher and technical supervisor
+    period: ""
+  - code: ""
+    title: Grieg Academy composition seminar
+    role: technical supervisor
+    period: ""

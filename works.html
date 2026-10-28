@@ -1,0 +1,19 @@
+---
+title: works
+permalink: /works/
+description: Selected works, albums, performances, collaborations and workshops by Antoine Hureau-Parreira since 2014.
+lede: Selected works, albums, performances, collaborations and workshops.
+---
+{% assign years = site.data.works | group_by: "year" %}
+<div class="timeline">
+{% for y in years %}
+  <section class="timeline__year">
+    <h2>{{ y.name }}</h2>
+    <ul>
+    {% for w in y.items %}
+      <li>{{ w.text | markdownify | remove: "<p>" | remove: "</p>" | strip }}</li>
+    {% endfor %}
+    </ul>
+  </section>
+{% endfor %}
+</div>

@@ -1,0 +1,21 @@
+---
+title: blog
+permalink: /blog/
+description: Notes on tools, builds and teaching by Antoine Hureau-Parreira.
+---
+
+{% if site.posts.size > 0 %}
+{% assign by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+<div class="timeline">
+{% for y in by_year %}
+  <section class="timeline__year">
+    <h2>{{ y.name }}</h2>
+    {% include post-list.html posts=y.items limit=100 %}
+  </section>
+{% endfor %}
+</div>
+{% else %}
+<p>No posts yet. New posts go in the <code>_posts</code> folder.</p>
+{% endif %}
+
+<p class="note">Follow new posts with the <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>.</p>

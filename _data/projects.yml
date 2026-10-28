@@ -1,0 +1,52 @@
+# Featured repositories on /code/, in the order shown.
+# "repo" is the repository name under github.com/antarthureau.
+# Every other public repository is listed automatically below these
+# when the site is built on GitHub Pages.
+- name: graf
+  repo: max-graf-library
+  year: "2026"
+  tools: C, Max/MSP
+  summary: >-
+    A graph data structure for Max/MSP, written as a family of C externals
+    against the Cycling '74 SDK. Build weighted, directed graphs by hand,
+    from CSV or from live data such as pitch and amplitude, then walk them
+    with random walks, BFS, DFS or Dijkstra. For state machines, Markov
+    models, non-linear sequencing and algorithmic composition.
+- name: suuret muinaiset
+  repo: suuret_muinaiset
+  year: ongoing
+  tools: C++, Teensy 4.0
+  summary: >-
+    Firmware and documentation for the sound and light system in
+    Suuret muinaiset päiväunilla, a long-term installation in Turku with
+    Joel Stenroos and Jesse Kitinoja. Three Teensy units each play their own
+    audio and drive their LEDs from the signal; one of them keeps time for
+    the others.
+- name: ariis-kb
+  repo: ariis-kb
+  year: "2026"
+  tools: documentation
+  summary: >-
+    Knowledge base for the technical implementations in ARIIS, a research
+    project at KMD, University of Bergen.
+- name: luke's lightbox
+  repo: Luke-s-lightbox
+  year: "2022"
+  tools: Arduino
+  summary: >-
+    Neon flicker for an LED light box made for Luke Drozd. A Beetle board
+    (a tiny Arduino Leonardo) drives 24 V LED strips through a MOSFET,
+    with randomly seeded glitches broken up by stretches of stability.
+- name: mecarchitecture
+  repo: Mecarchitecture-2
+  year: "2022"
+  tools: Pure Data, Raspberry Pi
+  summary: >-
+    Four-channel playback for an installation: a Pure Data patch on a
+    Raspberry Pi that starts on boot and loops its audio from a flash drive.
+- name: madrigal mk1
+  repo: madrigal-synth
+  year: "2019"
+  tools: Pure Data, Raspberry Pi
+  summary: >-
+    A digital synthesizer built in Pure Data to run on a Raspberry Pi.

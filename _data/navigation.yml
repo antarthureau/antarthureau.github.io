@@ -1,0 +1,15 @@
+# Main menu, in order
+- title: about
+  url: /about/
+- title: teaching
+  url: /teaching/
+- title: works
+  url: /works/
+- title: music
+  url: /music/
+- title: code
+  url: /code/
+- title: services
+  url: /services/
+- title: blog
+  url: /blog/

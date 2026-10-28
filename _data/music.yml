@@ -1,0 +1,53 @@
+# Music released as arthur hureau.
+
+# Where to listen. Shown on the music page and the front page, in this order.
+platforms:
+  - name: Bandcamp
+    url: https://arthureau.bandcamp.com/
+  - name: Spotify
+    url: https://open.spotify.com/artist/0C60L1Z5JqYLiefGK4hd73
+  - name: YouTube
+    url: https://www.youtube.com/channel/UCw-w5nASN8FTdQq_qlfdYmg
+  # Add your SoundCloud profile here and remove the # signs:
+  # - name: SoundCloud
+  #   url: https://soundcloud.com/your-profile
+
+# Spotify player on the music page. Remove this line to hide the player.
+spotify_artist_id: 0C60L1Z5JqYLiefGK4hd73
+
+albums:
+  - title: "167"
+    year: "2021"
+    url: https://arthureau.bandcamp.com/album/167-album
+  - title: a financial story
+    year: "2020"
+    url: https://arthureau.bandcamp.com/album/a-financial-story-album
+  - title: the limits to growth
+    year: "2019"
+    url: https://arthureau.bandcamp.com/album/the-limits-to-growth-album
+  - title: Dark Matters
+    year: "2018"
+    url: https://arthureau.bandcamp.com/album/dark-matters-album
+  - title: Froth Wall
+    year: "2015"
+    url: https://arthureau.bandcamp.com/album/froth-wall-album
+
+tracks:
+  - title: Tiny
+    url: https://arthureau.bandcamp.com/track/tiny-track
+  - title: "37"
+    url: https://arthureau.bandcamp.com/track/37-track
+  - title: Midsommer Madrigal
+    url: https://arthureau.bandcamp.com/track/midsommer-madrigal-track
+  - title: Natten
+    url: https://arthureau.bandcamp.com/track/natten-track
+  - title: Húm, Á Meðan Borgin Sefur (arthur hureau remix)
+    url: https://arthureau.bandcamp.com/track/h-m-me-an-borgin-sefur-arthur-hureau-remix
+  - title: fridtjof, Take (arthur hureau remix)
+    url: https://arthureau.bandcamp.com/track/fridtjof-take-arthur-hureau-remix
+  - title: kontor
+    url: https://arthureau.bandcamp.com/track/kontor-track
+  - title: Oceanic Ground, fire
+    url: https://arthureau.bandcamp.com/track/oceanic-ground-fire-track
+  - title: F.D.P.R.D.U.P.I.S.L.E.
+    url: https://arthureau.bandcamp.com/track/f-d-p-r-d-u-p-i-s-l-e-track

@@ -1,0 +1,65 @@
+# Site settings ------------------------------------------------------------
+title: antart
+description: >-
+  Antoine Hureau-Parreira, engineer, sound artist and teacher in Bergen.
+  Head engineer for music and performance at the University of Bergen.
+lang: en
+timezone: Europe/Oslo
+
+# If the repo is named antarthureau.github.io, keep baseurl empty.
+# If you use another repo name (e.g. "blog"), set baseurl: "/blog".
+# If you point antart.no at GitHub Pages, set url: "https://antart.no".
+url: "https://antarthureau.github.io"
+baseurl: ""
+
+author:
+  name: Antoine Hureau-Parreira
+  email: ahureau@pm.me
+  # Optional portrait shown on the about page, e.g. /assets/img/antoine.jpg
+  photo: ""
+  photo_credit: ""
+
+github_username: antarthureau
+repository: antarthureau/antarthureau.github.io
+
+# Repositories to leave out of the automatic list on /code/
+hide_repos:
+  - antarthureau.github.io
+
+# Build ------------------------------------------------------------------
+permalink: /blog/:year/:title/
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - .jekyll-cache

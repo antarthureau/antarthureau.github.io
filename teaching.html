@@ -1,0 +1,31 @@
+---
+title: teaching
+permalink: /teaching/
+description: Courses Antoine Hureau-Parreira teaches and supervises at the Faculty of Fine Art, Music and Design, University of Bergen.
+lede: At the Faculty of Fine Art, Music and Design I teach and supervise the technical side of courses, run workshop access courses, and support students and research fellows with the technology in their work.
+---
+{% assign now = site.data.teaching.current %}
+<h2>this semester: {{ now.semester }}</h2>
+
+<ul class="courses courses--current">
+{% for c in now.courses %}
+  <li>
+    <h3><a href="{{ c.url }}"><span class="course-code">{{ c.code }}</span> {{ c.title }}</a></h3>
+    <p class="course-meta">{{ c.role }}, {{ c.credits }}</p>
+    <p>{{ c.summary }}</p>
+  </li>
+{% endfor %}
+</ul>
+
+<h2>earlier courses</h2>
+
+<p class="note">Semesters use UiB's codes: H is autumn, V is spring, so 23H is autumn 2023.</p>
+
+<ul class="courses courses--history">
+{% for c in site.data.teaching.history %}
+  <li>
+    <span class="course-title">{% if c.code != "" %}<span class="course-code">{{ c.code }}</span> {% endif %}{{ c.title }}</span>
+    <span class="course-meta">{{ c.role }}{% if c.period != "" %}, {{ c.period }}{% endif %}</span>
+  </li>
+{% endfor %}
+</ul>

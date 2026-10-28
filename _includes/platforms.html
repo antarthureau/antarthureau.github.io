@@ -1,0 +1,5 @@
+<ul class="platforms">
+{% for p in site.data.music.platforms %}
+  <li><a href="{{ p.url }}">{{ p.name }}</a></li>
+{% endfor %}
+</ul>

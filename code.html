@@ -1,0 +1,37 @@
+---
+title: code
+permalink: /code/
+description: Open-source tools, firmware and patches by Antoine Hureau-Parreira for Max/MSP, Pure Data, Teensy, Arduino and Raspberry Pi.
+lede: Tools, firmware and patches, most of them made for a specific work.
+---
+{% assign featured_names = "" | split: "" %}
+<ul class="projects">
+{% for p in site.data.projects %}
+  {% assign featured_names = featured_names | push: p.repo %}
+  <li>
+    <h2><a href="https://github.com/{{ site.github_username }}/{{ p.repo }}">{{ p.name }}</a></h2>
+    <p class="project-meta">{{ p.tools }}, {{ p.year }}</p>
+    <p>{{ p.summary }}</p>
+  </li>
+{% endfor %}
+</ul>
+
+{% assign repos = site.github.public_repositories %}
+{% if repos and repos.size > 0 %}
+{% assign repos = repos | where: "fork", false | sort: "pushed_at" | reverse %}
+<h2>everything else</h2>
+
+<ul class="repos">
+{% for r in repos %}
+  {% unless featured_names contains r.name or site.hide_repos contains r.name %}
+  <li>
+    <a href="{{ r.html_url }}">{{ r.name }}</a>
+    {% if r.description %}<span class="repo-desc">{{ r.description }}</span>{% endif %}
+    {% if r.language %}<span class="repo-meta">{{ r.language }}</span>{% endif %}
+  </li>
+  {% endunless %}
+{% endfor %}
+</ul>
+{% endif %}
+
+<p>All repositories are on <a href="https://github.com/{{ site.github_username }}">github.com/{{ site.github_username }}</a>.</p>
