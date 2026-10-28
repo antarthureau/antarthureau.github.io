@@ -6,6 +6,7 @@ description: >-
 lang: en
 timezone: Europe/Oslo
 
+# The repository must be named antarthureau.github.io for these settings.
 # If the repo is named antarthureau.github.io, keep baseurl empty.
 # If you use another repo name (e.g. "blog"), set baseurl: "/blog".
 # If you point antart.no at GitHub Pages, set url: "https://antart.no".
@@ -15,8 +16,14 @@ baseurl: ""
 author:
   name: Antoine Hureau-Parreira
   email: ahureau@pm.me
-  # Optional portrait shown on the about page, e.g. /assets/img/antoine.jpg
-  photo: ""
+  # Shown in the sidebar, one line each
+  roles:
+    - Head engineer, music and performance, University of Bergen
+    - Sound artist and consultant
+  location: Bergen, Norway
+  # Portrait in the sidebar and on the about page. It appears as soon as the
+  # file exists; a square image of about 600 x 600 px works best.
+  photo: /assets/img/portrait.jpg
   photo_credit: ""
 
 github_username: antarthureau
@@ -44,6 +51,12 @@ feed:
 sass:
   style: compressed
 
+# Project pages for selected works live in _works/ and are published at /works/<name>/
+collections:
+  works:
+    output: true
+    permalink: /works/:name/
+
 defaults:
   - scope:
       path: ""
@@ -55,6 +68,11 @@ defaults:
       type: pages
     values:
       layout: page
+  - scope:
+      path: ""
+      type: works
+    values:
+      layout: work
 
 exclude:
   - README.md

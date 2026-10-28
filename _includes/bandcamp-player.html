@@ -1,0 +1,8 @@
+{%- comment -%}
+  Bandcamp's slim player for one album. The script at the bottom of the music
+  page picks the light or dark version to match the visitor's colour scheme.
+{%- endcomment -%}
+{%- assign a = include.album -%}
+<iframe class="bc" title="Play {{ a.title }} on Bandcamp" loading="lazy"
+  data-light="https://bandcamp.com/EmbeddedPlayer/album={{ a.bandcamp_id }}/size=small/bgcol=ffffff/linkcol=2b5b84/transparent=true/"
+  data-dark="https://bandcamp.com/EmbeddedPlayer/album={{ a.bandcamp_id }}/size=small/bgcol=333333/linkcol=9cbfe0/transparent=true/"></iframe>

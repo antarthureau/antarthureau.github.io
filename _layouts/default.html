@@ -3,12 +3,15 @@
 <head>
 {% include head.html %}
 </head>
-<body>
+<body{% if page.url == "/" or page.url == "/about/" %} class="show-identity"{% endif %}>
   <a class="skip-link" href="#main">Skip to content</a>
   {% include header.html %}
-  <main id="main" class="wrap">
-    {{ content }}
-  </main>
+  <div class="shell">
+    {% include sidebar.html %}
+    <main id="main" class="main">
+      {{ content }}
+    </main>
+  </div>
   {% include footer.html %}
 </body>
 </html>

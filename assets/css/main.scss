@@ -7,13 +7,14 @@
   --ink: #1b2026;
   --muted: #5b646e;
   --rule: #d8dde2;
-  --wash: #f1f3f5;
+  --wash: #eef0f2;
   --select: #2b5b84;
 
   --sans: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  --measure: 42rem;
+  --page: 62rem;
+  --measure: 44rem;
   --gutter: 1rem;
 }
 
@@ -23,7 +24,7 @@
     --ink: #e3e7ea;
     --muted: #9aa4ad;
     --rule: #2c343b;
-    --wash: #1c2227;
+    --wash: #1e252b;
     --select: #9cbfe0;
   }
 }
@@ -32,12 +33,15 @@
   --ink: #e3e7ea;
   --muted: #9aa4ad;
   --rule: #2c343b;
-  --wash: #1c2227;
+  --wash: #1e252b;
   --select: #9cbfe0;
 }
 
 @media (min-width: 40rem) {
   :root { --gutter: 1.5rem; }
+}
+@media (min-width: 64rem) {
+  :root { --gutter: 2rem; }
 }
 
 /* Base ------------------------------------------------------------------ */
@@ -84,8 +88,9 @@ h3 { font-size: 1.125rem; }
 
 img { max-width: 100%; height: auto; }
 
-.wrap {
-  max-width: calc(var(--measure) + 2 * var(--gutter));
+.wrap,
+.shell {
+  max-width: calc(var(--page) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
 }
@@ -102,13 +107,14 @@ img { max-width: 100%; height: auto; }
 
 /* Header and footer ----------------------------------------------------- */
 
+.site-header { border-bottom: 1px solid var(--rule); }
 .site-header__inner {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
-  padding-block: 1.5rem 0;
+  padding-block: 1.1rem;
 }
 
 .wordmark {
@@ -138,8 +144,6 @@ img { max-width: 100%; height: auto; }
   text-underline-offset: 0.35em;
 }
 
-main { padding-block: 2.5rem 4rem; }
-
 .site-footer {
   border-top: 1px solid var(--rule);
   color: var(--muted);
@@ -164,6 +168,91 @@ main { padding-block: 2.5rem 4rem; }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--select); }
 
+/* Shell: sidebar + main -------------------------------------------------- */
+
+.main {
+  min-width: 0;
+  max-width: var(--measure);
+  padding-block: 2.5rem 4rem;
+}
+
+/* Small screens: the identity block shows on the home and about pages only */
+.sidebar { display: none; }
+.show-identity .sidebar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  align-items: center;
+  padding-top: 2rem;
+}
+.sidebar__photo { grid-row: span 3; }
+.sidebar__photo img {
+  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.sidebar__name {
+  margin: 0;
+  font-size: 1.375rem;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.sidebar__name a { text-decoration: none; }
+.sidebar__roles {
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+.sidebar__links,
+.sidebar__credit { display: none; }
+
+@media (min-width: 60rem) {
+  .shell {
+    display: grid;
+    grid-template-columns: 14rem minmax(0, 1fr);
+    column-gap: 4rem;
+  }
+  .sidebar,
+  .show-identity .sidebar {
+    display: block;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    padding-block: 2.5rem;
+  }
+  .sidebar__photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    margin-bottom: 0.5rem;
+  }
+  .sidebar__credit {
+    display: block;
+    margin: 0 0 1rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .sidebar__photo + .sidebar__name { margin-top: 1rem; }
+  .sidebar__roles li + li { margin-top: 0.35rem; }
+  .sidebar__links {
+    display: block;
+    margin: 1.5rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--rule);
+    list-style: none;
+    font-size: 0.9375rem;
+  }
+  .sidebar__links li + li { margin-top: 0.2rem; }
+  .sidebar__links a { color: var(--muted); }
+  .sidebar__links a:hover { color: var(--select); }
+}
+
 /* Pages and prose -------------------------------------------------------- */
 
 .page-header { margin-bottom: 2rem; }
@@ -178,7 +267,7 @@ main { padding-block: 2.5rem 4rem; }
 .prose p, .prose ul, .prose ol, .prose dl { margin-bottom: 0; }
 .prose h2 { margin-top: 2.75rem; }
 .prose h3 { margin-top: 2rem; }
-.prose h2 + *, .prose h3 + * { margin-top: 0.6em; }
+.prose h2 + *, .prose h3 + * { margin-top: 0.75em; }
 .prose ul, .prose ol { padding-left: 1.25em; }
 .prose li + li { margin-top: 0.35em; }
 .prose blockquote {
@@ -189,6 +278,7 @@ main { padding-block: 2.5rem 4rem; }
 }
 .prose dl dt { font-weight: 700; }
 .prose dl dd { margin: 0.15em 0 0; }
+.prose img { display: block; }
 
 code, pre, kbd { font-family: var(--mono); font-size: 0.85em; }
 :not(pre) > code {
@@ -207,10 +297,6 @@ pre {
   color: var(--muted);
 }
 
-.portrait { margin: 0 0 2rem; }
-.portrait img { display: block; }
-.portrait figcaption { font-size: 0.875rem; color: var(--muted); margin-top: 0.4rem; }
-
 .post-meta {
   margin: 0.6rem 0 0;
   color: var(--muted);
@@ -226,20 +312,98 @@ pre {
 
 /* Home ------------------------------------------------------------------- */
 
-.home-header { margin: 1.5rem 0 2rem; }
-.home-header h1 { font-size: 2.75rem; line-height: 1.1; letter-spacing: -0.02em; }
-.home-header .lede { margin-top: 0.5rem; font-size: 1.375rem; }
-@media (max-width: 30rem) {
-  .home-header h1 { font-size: 2.25rem; }
+.intro {
+  font-size: 1.3125rem;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
 }
-
-.intro { font-size: 1.1875rem; line-height: 1.55; }
 .intro > :first-child { margin-top: 0; }
 .intro > * + * { margin-top: 0.75em; }
+@media (min-width: 40rem) {
+  .intro { font-size: 1.5rem; }
+}
 
-.home-section { margin-top: 3rem; }
-.home-section h2 { margin-bottom: 0.75rem; }
-.home-section > p { margin: 0.75rem 0 0; font-size: 0.9375rem; }
+.home-section { margin-top: 3.5rem; }
+.home-section h2 { margin-bottom: 1rem; }
+.home-section > p { margin: 1rem 0 0; font-size: 0.9375rem; }
+
+/* Work tiles -------------------------------------------------------------- */
+
+.tiles,
+.prose .tiles {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 36rem) {
+  .tiles,
+  .prose .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.prose .tiles li + li { margin-top: 0; }
+
+.tile__link {
+  display: block;
+  text-decoration: none;
+}
+.tile__media {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--wash);
+  border-radius: 3px;
+}
+.tile__media--empty {
+  display: flex;
+  align-items: flex-end;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+.tile__title {
+  display: block;
+  margin-top: 0.7rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.tile__link:hover .tile__title {
+  color: var(--select);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.tile__link:hover .tile__media { opacity: 0.92; }
+.tile__meta {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* Project pages ------------------------------------------------------------ */
+
+.work__image { margin: 0 0 2rem; }
+.work__image img {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+}
+.work__image figcaption {
+  margin-top: 0.5rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.work__links {
+  margin: 2rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+.work__links li + li { margin-top: 0.3rem; }
+.work__back { margin-top: 2.5rem; font-size: 0.9375rem; }
 
 /* Music ------------------------------------------------------------------ */
 
@@ -254,6 +418,86 @@ pre {
 }
 .prose .platforms li + li { margin-top: 0; }
 
+.covers {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 40rem) {
+  .covers { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+.covers a { display: block; text-decoration: none; }
+.covers img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--wash);
+  border-radius: 3px;
+}
+.covers__title {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.covers a:hover .covers__title { color: var(--select); text-decoration: underline; }
+.covers__year {
+  display: block;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.albums,
+.prose .albums {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.album {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding-block: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+.prose .albums li + li { margin-top: 0; }
+.album:last-child { border-bottom: 1px solid var(--rule); }
+@media (min-width: 40rem) {
+  .album { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1.5rem; }
+}
+.album__cover img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3px;
+  background: var(--wash);
+}
+.prose .album h3 { margin: 0; font-size: 1.25rem; }
+.album h3 a { text-decoration: none; }
+.album h3 a:hover { text-decoration: underline; }
+.album__meta {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* Bandcamp's slim player */
+.bc {
+  display: block;
+  width: 100%;
+  height: 42px;
+  margin-top: 0.75rem;
+  border: 0;
+}
+
 .player {
   display: block;
   width: 100%;
@@ -261,7 +505,6 @@ pre {
   border-radius: 12px;
   background: var(--wash);
 }
-.prose .player { margin-top: 1.75rem; }
 
 .releases,
 .prose .releases {
@@ -269,18 +512,7 @@ pre {
   padding: 0;
   list-style: none;
 }
-.releases li {
-  display: flex;
-  gap: 1rem;
-  align-items: baseline;
-}
 .prose .releases li + li { margin-top: 0.4rem; }
-.release-year {
-  flex: 0 0 3rem;
-  color: var(--muted);
-  font-size: 0.9375rem;
-  font-variant-numeric: tabular-nums;
-}
 
 /* Lists: courses, posts, projects, works --------------------------------- */
 
@@ -348,16 +580,18 @@ pre {
   padding-block: 1rem;
   border-top: 1px solid var(--rule);
 }
-.timeline__year h2 {
+.timeline__year h2,
+.timeline__year h3 {
   font-size: 1.125rem;
   font-variant-numeric: tabular-nums;
   margin: 0;
 }
 .timeline__year li + li { margin-top: 0.5rem; }
-.prose .timeline { margin-top: 0; }
+.prose .timeline__year > * + * { margin-top: 0; }
 @media (min-width: 40rem) {
   .timeline__year { grid-template-columns: 5.5rem 1fr; }
-  .timeline__year h2 { line-height: 1.6; }
+  .timeline__year h2,
+  .timeline__year h3 { line-height: 1.6; }
 }
 
 .projects li + li { margin-top: 2.25rem; }
@@ -372,3 +606,11 @@ pre {
 .repos li:last-child { border-bottom: 1px solid var(--rule); }
 .repo-desc { display: block; font-size: 1rem; }
 .repo-meta { display: block; color: var(--muted); font-size: 0.875rem; }
+
+/* Space between a heading and a list that resets its own margins */
+.prose h2 + .tiles,
+.prose h2 + .albums,
+.prose h2 + .releases,
+.prose h2 + .timeline,
+.prose h2 + .platforms,
+.prose h2 + .courses { margin-top: 1rem; }

@@ -7,8 +7,8 @@
         {% assign current = false %}
         {% if page.url == item.url %}
           {% assign current = true %}
-        {% elsif item.url == "/blog/" and page.collection == "posts" %}
-          {% assign current = true %}
+        {% elsif item.url != "/" %}
+          {% if page.url contains item.url %}{% assign current = true %}{% endif %}
         {% endif %}
         <li><a href="{{ item.url | relative_url }}"{% if current %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
       {% endfor %}

@@ -15,22 +15,39 @@ platforms:
 # Spotify player on the music page. Remove this line to hide the player.
 spotify_artist_id: 0C60L1Z5JqYLiefGK4hd73
 
+# Albums: bandcamp_id and cover come from each album's Bandcamp page
+# (Share/Embed, or the page's preview image). The player is Bandcamp's own.
 albums:
   - title: "167"
     year: "2021"
     url: https://arthureau.bandcamp.com/album/167-album
+    bandcamp_id: "2296768524"
+    cover: https://f4.bcbits.com/img/a0190059504_5.jpg
+    tracks: 6
   - title: a financial story
     year: "2020"
     url: https://arthureau.bandcamp.com/album/a-financial-story-album
+    bandcamp_id: "3285165404"
+    cover: https://f4.bcbits.com/img/a0270539241_5.jpg
+    tracks: 7
   - title: the limits to growth
     year: "2019"
     url: https://arthureau.bandcamp.com/album/the-limits-to-growth-album
+    bandcamp_id: "2165956948"
+    cover: https://f4.bcbits.com/img/a0812946989_5.jpg
+    tracks: 9
   - title: Dark Matters
     year: "2018"
     url: https://arthureau.bandcamp.com/album/dark-matters-album
+    bandcamp_id: "3844667333"
+    cover: https://f4.bcbits.com/img/a1443083480_5.jpg
+    tracks: 5
   - title: Froth Wall
     year: "2015"
     url: https://arthureau.bandcamp.com/album/froth-wall-album
+    bandcamp_id: "803608698"
+    cover: https://f4.bcbits.com/img/a3232678204_5.jpg
+    tracks: 7
 
 tracks:
   - title: Tiny

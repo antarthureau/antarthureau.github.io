@@ -1,0 +1,17 @@
+{%- comment -%}
+  One work in a grid. Shows the photo when the file in `image` exists,
+  otherwise a plain tile with the medium, so the grid never looks broken.
+{%- endcomment -%}
+{%- assign w = include.work -%}
+{%- assign img = site.static_files | where: "path", w.image | first -%}
+<li class="tile">
+  <a class="tile__link" href="{{ w.url | relative_url }}">
+    {% if img %}
+    <img class="tile__media" src="{{ w.image | relative_url }}" alt="" loading="lazy" width="800" height="600">
+    {% else %}
+    <span class="tile__media tile__media--empty"><span>{{ w.medium }}</span></span>
+    {% endif %}
+    <span class="tile__title">{{ w.title }}</span>
+  </a>
+  <span class="tile__meta">{{ w.year }}, {{ w.place }}</span>
+</li>

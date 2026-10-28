@@ -4,13 +4,6 @@ permalink: /about/
 description: Antoine Hureau-Parreira, Bergen-based multimedia designer, engineer and consultant, head engineer for music and performance at the University of Bergen.
 ---
 
-{% if site.author.photo != "" %}
-<figure class="portrait">
-  <img src="{{ site.author.photo | relative_url }}" alt="Portrait of {{ site.author.name }}" width="320">
-  {% if site.author.photo_credit != "" %}<figcaption>Photo: {{ site.author.photo_credit }}</figcaption>{% endif %}
-</figure>
-{% endif %}
-
 I'm a Bergen-based multimedia designer, engineer and consultant with a background in music, video, electronic and digital media, and interaction design. I advocate for open science and free technologies, and over the years I've worked with many artists and cultural institutions on all kinds of projects.
 
 I've offered consulting services since 2015, specialising in creative tech systems, education and, more broadly, the use of technology in art.

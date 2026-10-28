@@ -6,21 +6,61 @@ Personal site of Antoine Hureau-Parreira: about, teaching, works, music, code, s
 
 | To change | Edit |
 | --- | --- |
-| Site title, description, photo, URL | `_config.yml` |
+| Site title, description, sidebar roles, portrait, URL | `_config.yml` |
 | Front page text | `index.md` |
 | Menu | `_data/navigation.yml` |
 | Footer links | `_data/links.yml` |
 | About and UiB role | `about.md` |
 | Courses (current and earlier) | `_data/teaching.yml` |
-| Works list | `_data/works.yml` |
+| Selected works (project pages and front-page grid) | `_works/` |
+| Full works list | `_data/works.yml` |
 | Music: platforms, albums, tracks, Spotify player | `_data/music.yml` |
 | Featured repositories | `_data/projects.yml` |
 | Services | `services.md` |
 | Blog posts | `_posts/` |
 | Unpublished drafts | `_drafts/` |
+| Photos | `assets/img/` |
 | Colours and type | `assets/css/main.scss` |
 
 Every public repository that is not featured or listed in `hide_repos` in `_config.yml` is shown automatically on `/code/` when GitHub Pages builds the site.
+
+## Adding photos
+
+Images appear as soon as the file exists at the path the site expects, so you only need to drop files in and commit:
+
+| Photo | File | Size |
+| --- | --- | --- |
+| Portrait (sidebar) | `assets/img/portrait.jpg` | square, about 600 × 600 px |
+| Suuret muinaiset päiväunilla | `assets/img/works/suuret-muinaiset.jpg` | 4:3, about 1600 × 1200 px |
+| PRODROME | `assets/img/works/prodrome.jpg` | 4:3 |
+| The Tempest | `assets/img/works/the-tempest.jpg` | 4:3 |
+| Lyttekammers | `assets/img/works/lyttekammers.jpg` | 4:3 |
+
+Until a photo is there, its tile shows a plain grey block with the work's medium. Keep files under about 400 KB (export as JPEG at 80% quality). To credit a photographer, set `photo_credit` in `_config.yml` for the portrait, or `image_credit` in a work's front matter.
+
+## Adding a selected work
+
+Copy one of the files in `_works/`, rename it (the file name becomes the address, e.g. `_works/hydra.md` → `/works/hydra/`) and edit its front matter:
+
+```yaml
+---
+title: Hydra
+year: "2018"
+place: Rom 8, Bergen, NO
+collaborators: Craig Wells
+medium: sound installation
+image: /assets/img/works/hydra.jpg
+featured: true      # show in the grids
+order: 5            # position in the grids
+links:
+  - title: Project site
+    url: https://beepblipbuzz.com/
+---
+
+Text about the work in Markdown.
+```
+
+The front page shows the first four featured works; the works page shows all of them.
 
 ## Writing a post
 
@@ -62,7 +102,9 @@ Either rename the old repository first (Settings → General → Repository name
 
 ### Using another repository name
 
-If the repository is called something else (for example `blog`), set `baseurl: "/blog"` in `_config.yml`. The site will be at https://antarthureau.github.io/blog/.
+The settings in `_config.yml` assume the repository is named `antarthureau.github.io`. Under any other name (for example `blog`), GitHub serves the site at https://antarthureau.github.io/blog/ and every link and the stylesheet break. Either rename the repository (Settings → General → Repository name) to `antarthureau.github.io`, or set `baseurl: "/blog"` in `_config.yml`.
+
+After a rename, point your local copy at the new name with `git remote set-url origin https://github.com/antarthureau/antarthureau.github.io.git` (GitHub also redirects the old address).
 
 ## Keeping antart.no
 

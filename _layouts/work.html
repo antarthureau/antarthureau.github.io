@@ -1,0 +1,32 @@
+---
+layout: default
+---
+{%- assign img = site.static_files | where: "path", page.image | first -%}
+<article class="work">
+  <header class="page-header">
+    <h1>{{ page.title }}</h1>
+    <p class="lede">{{ page.medium | capitalize }}{% if page.collaborators %}, with {{ page.collaborators }}{% endif %}.</p>
+    <p class="post-meta">{{ page.year }}, {{ page.place }}</p>
+  </header>
+
+  {% if img %}
+  <figure class="work__image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}">
+    {% if page.image_credit %}<figcaption>Photo: {{ page.image_credit }}</figcaption>{% endif %}
+  </figure>
+  {% endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if page.links %}
+  <ul class="work__links">
+  {% for l in page.links %}
+    <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+
+  <p class="work__back"><a href="{{ '/works/' | relative_url }}">All works</a></p>
+</article>

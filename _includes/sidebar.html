@@ -1,0 +1,25 @@
+{%- assign photo = site.static_files | where: "path", site.author.photo | first -%}
+<aside class="sidebar" aria-label="About {{ site.author.name }}">
+  {% if photo %}
+  <a class="sidebar__photo" href="{{ '/about/' | relative_url }}">
+    <img src="{{ site.author.photo | relative_url }}" alt="Portrait of {{ site.author.name }}" width="600" height="600">
+  </a>
+  {% if site.author.photo_credit != "" %}<p class="sidebar__credit">Photo: {{ site.author.photo_credit }}</p>{% endif %}
+  {% endif %}
+  {% if page.url == "/" %}
+  <h1 class="sidebar__name">{{ site.author.name }}</h1>
+  {% else %}
+  <p class="sidebar__name"><a href="{{ '/' | relative_url }}">{{ site.author.name }}</a></p>
+  {% endif %}
+  <ul class="sidebar__roles">
+  {% for role in site.author.roles %}
+    <li>{{ role }}</li>
+  {% endfor %}
+    <li>{{ site.author.location }}</li>
+  </ul>
+  <ul class="sidebar__links">
+  {% for l in site.data.links %}
+    <li><a href="{{ l.url }}">{{ l.title }}</a></li>
+  {% endfor %}
+  </ul>
+</aside>

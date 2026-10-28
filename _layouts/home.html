@@ -1,14 +1,38 @@
 ---
 layout: default
 ---
-<header class="home-header">
-  <h1>{{ site.author.name }}</h1>
-  <p class="lede">{{ page.lede }}</p>
-</header>
-
 <div class="intro prose">
   {{ content }}
 </div>
+
+{% assign featured = site.works | where: "featured", true | sort: "order" %}
+{% if featured.size > 0 %}
+<section class="home-section">
+  <h2>selected works</h2>
+  <ul class="tiles">
+  {% for w in featured limit: 4 %}
+    {% include work-tile.html work=w %}
+  {% endfor %}
+  </ul>
+  <p><a href="{{ '/works/' | relative_url }}">All works</a></p>
+</section>
+{% endif %}
+
+<section class="home-section">
+  <h2>music</h2>
+  <ul class="covers">
+  {% for a in site.data.music.albums %}
+    <li>
+      <a href="{{ a.url }}">
+        <img src="{{ a.cover }}" alt="" loading="lazy" width="700" height="700">
+        <span class="covers__title">{{ a.title }}</span>
+      </a>
+      <span class="covers__year">{{ a.year }}</span>
+    </li>
+  {% endfor %}
+  </ul>
+  <p><a href="{{ '/music/' | relative_url }}">Albums, tracks and players</a></p>
+</section>
 
 {% assign now = site.data.teaching.current %}
 <section class="home-section">
@@ -19,12 +43,6 @@ layout: default
   {% endfor %}
   </ul>
   <p><a href="{{ '/teaching/' | relative_url }}">All courses</a></p>
-</section>
-
-<section class="home-section">
-  <h2>music</h2>
-  {% include platforms.html %}
-  <p><a href="{{ '/music/' | relative_url }}">Albums and tracks</a></p>
 </section>
 
 {% if site.posts.size > 0 %}

@@ -1,6 +1,6 @@
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
-    <p>{{ site.author.name }}, Bergen</p>
+    <p>{{ site.author.name }}, {{ site.author.location }}</p>
     <ul>
     {% for l in site.data.links %}
       <li><a href="{{ l.url }}">{{ l.title }}</a></li>
